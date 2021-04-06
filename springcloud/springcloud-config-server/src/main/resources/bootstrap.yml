@@ -1,0 +1,7 @@
+encrypt:
+    key: 49d3458e-1369-4293-8487-af21b26f5f96
+    key-store:
+        alias: key
+        location: server.jks
+        secret: changeme
+        password: letmein

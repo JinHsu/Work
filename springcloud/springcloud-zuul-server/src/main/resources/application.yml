@@ -1,0 +1,15 @@
+server:
+    port: 8888
+
+spring:
+    application:
+        name: springcloud-zuul-server
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8000/eureka
+
+    instance:
+        instance-id: springcloud-zuul-server
+

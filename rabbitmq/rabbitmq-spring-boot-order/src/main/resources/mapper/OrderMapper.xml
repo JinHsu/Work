@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sharit.rabbitmq.order.mapper.OrderMapper">
+
+    <insert id="insert" parameterType="cn.sharit.rabbitmq.order.pojo.Order">
+        insert into `order`(id, title, date, price, product_id, num, status)
+        values (#{id}, #{title}, #{date}, #{price}, #{productId}, #{num}, #{status})
+    </insert>
+
+    <select id="selectById" resultType="cn.sharit.rabbitmq.order.pojo.Order">
+        select id, title, date, price, product_id, num, status
+        from `order`
+        where id = #{id}
+    </select>
+
+    <select id="selectMaxOrderId" resultType="java.lang.Long">
+        select max(id) as max_id
+        from `order`
+    </select>
+
+    <update id="updateStatus">
+        update `order`
+        <set>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

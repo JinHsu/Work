@@ -1,0 +1,35 @@
+server:
+    port: 0
+
+spring:
+    application:
+        name: springcloud-user-service
+    datasource:
+        url: jdbc:mysql://192.168.1.188:3306/springcloud
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: root
+
+mybatis:
+    mapper-locations: classpath:/mapper/*.xml
+    config-location: classpath:/mybatis-config.xml
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8000/eureka
+
+    instance:
+        instance-id: springcloud-user-service-${random.int}
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+    endpoint:
+        health:
+            enabled: true
+
+info:
+    instance-id: ${eureka.instance.instance-id}

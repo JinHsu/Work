@@ -1,0 +1,23 @@
+server:
+    port: 8080
+
+spring:
+    application:
+        name: springcloud-config-server
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/JinHsu/springcloud-config-repo.git
+                    username: jinhsu
+                    password: AQBnOSaYUjKqzR4Xo9SeYrDZsStzDj6TKjDv/b23dYndQ4VolPcmlfWP6IXqY6/sn0NJlbuDLeUCxAKgNRPZV9ehGUJIBNbpq7/k86PspVURJUbs8qimuhUhIdqrvUnrwMu4NXZr1lEMnBrbx/gczmWjg+UacV8Iyr0bFmXlRNUMY7QaojZxnoTAj1WsqNAXcqJoPm4FpsMep/N7RxicU6OlfovC0X+1KKdcep4RU50vuI2sFZTGkGP8WJzuXzCEKp0CwWJxJZQ2znWbKOIkUnoMyjpgIrryBZu7IVeOmXUicc1ZxukSBGGEVWlMuhTeiuwrUeg3luzNsoolKNHTUrrOFkBrE1ZoKA0vxdNDV9vLP7lur9oQYAL6PUqjRhBldWM=%
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8000/eureka
+
+    instance:
+        instance-id: springcloud-config-server
+
+

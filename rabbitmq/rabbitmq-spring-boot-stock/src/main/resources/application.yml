@@ -1,0 +1,29 @@
+server:
+    port: 7777
+spring:
+    rabbitmq:
+        #        addresses:
+        username: guest
+        password: guest
+        virtual-host: /
+        host: 192.168.1.188
+        port: 5672
+        listener:
+            simple:
+                acknowledge-mode: manual
+                retry:
+                    enabled: true
+                    max-attempts: 3
+                    initial-interval: 2000ms
+
+    application:
+        name: rabbitmq-spring-boot-stock
+    datasource:
+        url: jdbc:mysql://192.168.1.188:3306/rabbitmq
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: root
+
+mybatis:
+    mapper-locations: classpath:/mapper/*.xml
+    config-location: classpath:/mybatis-config.xml

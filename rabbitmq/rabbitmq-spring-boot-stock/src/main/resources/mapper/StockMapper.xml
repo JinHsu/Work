@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sharit.rabbitmq.stock.mapper.StockMapper">
+
+    <insert id="insert" parameterType="cn.sharit.rabbitmq.stock.pojo.Stock">
+        insert into `stock`(id, product_id, inventory)
+        values (#{id}, #{productId}, #{inventory})
+    </insert>
+
+    <select id="selectById" resultType="cn.sharit.rabbitmq.stock.pojo.Stock">
+        select id, product_id, inventory
+        from `stock`
+        where id = #{id}
+    </select>
+
+    <select id="selectByProductId" resultType="cn.sharit.rabbitmq.stock.pojo.Stock">
+        select id, product_id, inventory
+        from `stock`
+        where product_id = #{productId}
+    </select>
+
+    <update id="update" parameterType="cn.sharit.rabbitmq.stock.pojo.Stock">
+        update stock
+        <set>
+            <if test="productId != null">
+                inventory = #{inventory},
+            </if>
+        </set>
+        where product_id = #{productId}
+    </update>
+
+</mapper>

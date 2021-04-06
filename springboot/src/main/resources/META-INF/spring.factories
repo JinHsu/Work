@@ -1,0 +1,15 @@
+#org.springframework.boot.autoconfigure.AutoConfigurationImportListener
+org.springframework.boot.autoconfigure.AutoConfigurationImportListener=\
+cn.sharit.springboot.listeners.TestAutoConfigurationImportListener
+
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cn.sharit.springboot.autoconfig.TestAutoConfiguration
+
+#org.springframework.context.ApplicationContextInitializer
+org.springframework.context.ApplicationContextInitializer=\
+cn.sharit.springboot.initializers.TestApplicationContextInitializer
+
+#org.springframework.context.ApplicationListener
+org.springframework.context.ApplicationListener=\
+cn.sharit.springboot.listeners.TestApplicationListener

@@ -1,0 +1,38 @@
+server:
+    port: 8002
+
+spring:
+    application:
+        name: springcloud-order-service
+    datasource:
+        url: jdbc:mysql://192.168.1.188:3306/springcloud
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: root
+
+mybatis:
+    mapper-locations: classpath:/mapper/*.xml
+    config-location: classpath:/mybatis-config.xml
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8000/eureka
+
+    instance:
+        instance-id: springcloud-order-service
+feign:
+    hystrix:
+        enabled: true #服务降级
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+    endpoint:
+        health:
+            enabled: true
+
+info:
+    instance-id: ${eureka.instance.instance-id}
